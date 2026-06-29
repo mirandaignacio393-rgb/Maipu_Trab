@@ -15,7 +15,7 @@ supabase==2.11.0
 
 # IA
 anthropic==0.42.0
-voyageai==0.3.2
+voyageai==0.4.1
 
 # Parseo de documentos
 pypdf==5.1.0
