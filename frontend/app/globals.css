@@ -6,6 +6,58 @@
   color-scheme: light;
 }
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  @apply bg-slate-50 text-slate-900;
+  @apply bg-ink-50 text-ink-900;
+  background-image:
+    radial-gradient(circle at 100% 0%, rgb(47 128 120 / 0.06), transparent 55%),
+    radial-gradient(circle at 0% 100%, rgb(217 122 63 / 0.05), transparent 45%);
+  background-attachment: fixed;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+.prose-chat p {
+  margin: 0 0 0.6em;
+}
+.prose-chat p:last-child {
+  margin-bottom: 0;
+}
+.prose-chat ul,
+.prose-chat ol {
+  margin: 0.3em 0 0.6em;
+  padding-left: 1.25em;
+}
+.prose-chat ul {
+  list-style-type: disc;
+}
+.prose-chat ol {
+  list-style-type: decimal;
+}
+.prose-chat li {
+  margin: 0.2em 0;
+}
+.prose-chat li > p {
+  margin: 0;
+}
+.prose-chat strong {
+  font-weight: 700;
+  color: inherit;
+}
+.prose-chat code {
+  background: rgb(22 22 17 / 0.06);
+  border-radius: 0.25em;
+  padding: 0.1em 0.35em;
+  font-size: 0.85em;
+}
+.prose-chat a {
+  color: #2f8078;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
