@@ -51,7 +51,7 @@ def health_config() -> dict:
 
 @app.get("/api/health/db")
 def health_db() -> dict:
-    """Diagnóstico: prueba la conexión a la base de datos."""
+    """Diagnóstico: prueba la conexión TCP directa a Postgres (psycopg + pooler/directo)."""
     from .clients import get_pool
 
     try:
@@ -61,3 +61,17 @@ def health_db() -> dict:
         return {"db": "ok"}
     except Exception as exc:  # noqa: BLE001
         return {"db": "error", "detail": str(exc)[:600]}
+
+
+@app.get("/api/health/rest")
+def health_rest() -> dict:
+    """Diagnóstico: prueba el acceso a Postgres vía la API REST de Supabase (PostgREST),
+    un camino de red distinto a la conexión TCP directa (mismo camino que usa Auth/Storage)."""
+    from .clients import get_supabase
+
+    try:
+        sb = get_supabase()
+        resp = sb.table("companies").select("id").limit(1).execute()
+        return {"rest": "ok", "rows": len(resp.data)}
+    except Exception as exc:  # noqa: BLE001
+        return {"rest": "error", "detail": str(exc)[:600]}
