@@ -1,17 +1,17 @@
 fastapi==0.115.6
 uvicorn[standard]==0.34.0
-pydantic==2.10.4
+pydantic==2.13.4
 pydantic-settings==2.7.1
 python-multipart==0.0.20
 httpx==0.28.1
 
 # Auth
-pyjwt==2.10.1
+pyjwt==2.13.0
 
 # Datos
 psycopg[binary,pool]==3.2.3
 pgvector==0.3.6
-supabase==2.11.0
+supabase==2.31.0
 
 # IA
 anthropic==0.42.0
